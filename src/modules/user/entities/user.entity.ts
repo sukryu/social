@@ -56,4 +56,9 @@ export class UserEntity extends EntityHelper {
     @ApiResponseProperty()
     @DeleteDateColumn()
     deletedAt: Date | null;
+
+    constructor(data: Partial<UserEntity> = {}) {
+        super();
+        Object.assign(this, data);
+    }
 }

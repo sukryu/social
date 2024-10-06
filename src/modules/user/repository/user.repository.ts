@@ -30,6 +30,16 @@ export class UserRepository {
             throw error;
         }
     }
+
+    async findOneByNickname(nickname: string): Promise<NullableType<UserEntity>> {
+        try {
+            const user = await this.repo.findOne({ where: { nickname }});
+            if (!user) return null;
+            else return user;
+        } catch (error) {
+            throw error;
+        }
+    }
     
     async create(data: Partial<UserEntity>): Promise<UserEntity> {
         try {
