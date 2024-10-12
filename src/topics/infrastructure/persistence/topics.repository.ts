@@ -1,4 +1,3 @@
-import { DeepPartial } from "../../../utils/types/deep-partial.type";
 import { NullableType } from "../../../utils/types/nullable.type";
 import { IPaginationOptions } from "../../../utils/types/pagination-options";
 import { Topics } from "../../domain/topics";
@@ -22,10 +21,10 @@ export abstract class TopicsRepository {
     abstract findById(id: Topics['id']): Promise<NullableType<Topics>>;
     abstract findByIds(ids: Topics['id'][]): Promise<Topics[]>;
     abstract findByTitle(title: Topics['title']): Promise<NullableType<Topics>>;
-    abstract findByCreatedBy(createdBy: Topics['createdBy']): Promise<NullableType<Topics>>;
+    abstract findByCreatedBy(createdBy: Topics['createdBy']): Promise<NullableType<Topics[]>>;
     
     abstract update(
         id: Topics['id'],
-        payload: DeepPartial<Topics>
-    ): Promise<NullableType<Topics>>;
+        payload: Partial<Topics>
+    ): Promise<Topics>;
 }
