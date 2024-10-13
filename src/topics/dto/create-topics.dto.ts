@@ -1,19 +1,19 @@
-import { IsDate, IsNotEmpty, IsString } from "class-validator";
+import { IsDate, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateTopicsDto {
-    @IsString()
-    @IsNotEmpty()
-    title: string;
+  @IsString()
+  @IsNotEmpty()
+  title: string;
 
-    @IsString()
-    @IsNotEmpty()
-    description: string;
+  @IsString()
+  @IsNotEmpty()
+  description: string;
 
-    @IsDate()
-    @IsNotEmpty()
-    start_time: Date;
+  @IsDate()
+  @IsNotEmpty()
+  start_time: Date;
 
-    @IsDate()
-    @IsNotEmpty()
-    end_time: Date;
+  @IsDate()
+  @IsNotEmpty()
+  end_time: Date;
 }
