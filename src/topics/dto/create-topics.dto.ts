@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateTopicsDto {
   @IsString()
@@ -9,11 +9,11 @@ export class CreateTopicsDto {
   @IsNotEmpty()
   description: string;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   start_time: Date;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   end_time: Date;
 }

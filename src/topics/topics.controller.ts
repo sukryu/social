@@ -54,6 +54,8 @@ export class TopicsController {
     @Req() req,
     @Body() createTopicsDto: CreateTopicsDto,
   ): Promise<Topics> {
+    createTopicsDto.start_time = new Date(createTopicsDto.start_time);
+    createTopicsDto.end_time = new Date(createTopicsDto.end_time);
     return this.topicsService.create(req.user.id, createTopicsDto);
   }
 
@@ -144,6 +146,13 @@ export class TopicsController {
     @Param('id') id: Topics['id'],
     @Body() updateTopicsDto: UpdateTopicsDto,
   ): Promise<Topics | null> {
+    if (updateTopicsDto.start_time) {
+        updateTopicsDto.start_time = new Date(updateTopicsDto.start_time);
+    }
+
+    if (updateTopicsDto.end_time) {
+        updateTopicsDto.end_time = new Date(updateTopicsDto.end_time);
+    }
     return this.topicsService.update(id, updateTopicsDto);
   }
 }

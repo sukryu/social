@@ -1,5 +1,5 @@
 import {
-  IsDate,
+  IsDateString,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -20,10 +20,10 @@ export class UpdateTopicsDto {
   description: string;
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   start_time: Date;
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   end_time: Date;
 }

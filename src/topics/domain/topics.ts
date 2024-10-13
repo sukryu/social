@@ -1,16 +1,17 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
+import { RoleEnum } from '../../roles/roles.enum';
 
 export class Topics {
   @ApiProperty({ type: Number })
   id: number;
 
   @ApiProperty({ type: Number })
-  @Expose({ groups: ['admin'] })
+  @Expose({ groups: [RoleEnum.admin.toString()] })
   createdBy: number;
 
   @ApiProperty({ type: Number })
-  @Expose({ groups: ['admin'] })
+  @Expose({ groups: [RoleEnum.admin.toString()] })
   updatedBy: number;
 
   @ApiProperty({ type: String, example: 'Food' })
